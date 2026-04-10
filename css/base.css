@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #e9eeec;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
