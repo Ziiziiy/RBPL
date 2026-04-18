@@ -1,0 +1,141 @@
+/* WRAPPER */
+.app-wrapper {
+    max-width: 420px;
+    margin: auto;
+    min-height: 100vh;
+    background: #e9eeec;
+}
+
+/* HEADER */
+.top-bar-tiket {
+    background: #0ea44b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.top-bar-tiket h1 {
+    font-size: 20px;
+}
+
+/* CONTENT */
+.content {
+    padding: 20px;
+}
+
+/* CARD */
+.card-tiket {
+    background: white;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 18px;
+}
+
+/* NOMOR ANTRIAN (HERO) */
+.tiket-number {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tiket-number .label {
+    font-size: 13px;
+    color: #777;
+}
+
+.tiket-number .number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #0ea44b;
+    margin: 8px 0;
+}
+
+.tiket-number .selesai {
+    font-size: 13px;
+    color: #555;
+}
+
+/* DETAIL */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 13px;
+    color: #666;
+}
+
+.value {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* TOTAL */
+.value-orange {
+    color: #0ea44b;
+    font-weight: bold;
+}
+
+/* DIVIDER */
+.divider {
+    height: 1px;
+    background: #eee;
+    margin: 12px 0;
+}
+
+/* INFO BOX */
+.info-box-blue {
+    background: #e8f0ff;
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 13px;
+    color: #2c5aa0;
+}
+
+/* BUTTON ROW */
+.btn-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTON BASE */
+.btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+/* VARIANTS */
+.btn-gray {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-blue {
+    background: #2d6cdf;
+    color: white;
+}
+
+.btn-orange {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 18px;
+    background: #0ea44b;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* HOVER */
+.btn:hover {
+    opacity: 0.9;
+}

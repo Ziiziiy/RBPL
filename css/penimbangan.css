@@ -1,0 +1,157 @@
+/* WRAPPER */
+.app-wrapper {
+    max-width: 420px;
+    margin: auto;
+    min-height: 100vh;
+    background: #e9eeec;
+}
+
+/* HEADER */
+.top-bar {
+    background: #0ea44b;
+    color: white;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+}
+
+.top-bar h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: absolute;
+    left: 15px;
+    top: 22px;
+    color: white;
+    font-size: 16px;
+}
+
+/* CONTENT */
+.content {
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 18px;
+}
+
+/* CARD INFO PELANGGAN */
+.card-info-pelanggan {
+    background: #f3f5f4;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 13px;
+    color: #666;
+}
+
+.value {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* INPUT ROW */
+.berat-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+/* INPUT BERAT */
+.berat-input-row input {
+    flex: 1;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 16px;
+    border: 2px solid #0ea44b;
+    outline: none;
+}
+
+/* BUTTON TIMBANG */
+.btn-timbang {
+    padding: 0 12px;
+    border-radius: 12px;
+    background: #e0e0e0;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* DISPLAY BERAT */
+.weight-display {
+    margin-top: 15px;
+    background: #f9faf9;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.weight-num {
+    font-size: 42px;
+    font-weight: bold;
+    color: #0ea44b;
+}
+
+.weight-unit {
+    font-size: 14px;
+    color: #666;
+}
+
+/* BUTTON PRIMARY */
+.btn-orange {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 18px;
+    background: #0ea44b;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+.btn-orange:hover {
+    background: #0c8a3e;
+}
+
+/* ALERT */
+.alert-error {
+    background: #ffe6e6;
+    color: #b30000;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}

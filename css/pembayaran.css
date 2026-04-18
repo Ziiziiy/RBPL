@@ -1,0 +1,143 @@
+/* WRAPPER */
+.app-wrapper {
+    max-width: 420px;
+    margin: auto;
+    min-height: 100vh;
+    background: #e9eeec;
+}
+
+/* HEADER */
+.top-bar {
+    background: #0ea44b;
+    color: white;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+}
+
+.top-bar h1 {
+    font-size: 20px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: absolute;
+    left: 15px;
+    top: 22px;
+    color: white;
+    font-size: 16px;
+}
+
+/* CONTENT */
+.content {
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.ringkasan-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* DETAIL ROW */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 13px;
+    color: #666;
+}
+
+.value {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* DIVIDER */
+.divider {
+    height: 1px;
+    background: #eee;
+    margin: 12px 0;
+}
+
+/* TOTAL */
+.total-bayar-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.total-bayar-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0ea44b;
+}
+
+/* PAYMENT OPTION */
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.payment-option:hover {
+    transform: translateY(-2px);
+}
+
+/* ICON */
+.pay-icon {
+    font-size: 22px;
+}
+
+/* TEXT */
+.payment-option h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.payment-option p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* SELECTED STATE */
+.payment-option.selected {
+    border: 2px solid #0ea44b;
+    background: #eaf7ef;
+}
+
+/* BUTTON */
+.btn-orange {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 18px;
+    background: #0ea44b;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+.btn-orange:hover {
+    background: #0c8a3e;
+}
