@@ -5,7 +5,7 @@ require_once 'database.php';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama    = trim($_POST['nama'] ?? '');
+    $nama    = trim($_POST['nama']    ?? '');
     $telepon = trim($_POST['telepon'] ?? '');
 
     if (empty($nama)) {
@@ -26,13 +26,14 @@ $tarif = getTarif();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Pesanan Baru</title>
+    <title>Buat Pesanan — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/buat_pesanan.css">
 </head>
 <body>
 <div class="app-wrapper">
-    <div class="top-bar">
+
+    <div class="top-bar top-bar-center">
         <a href="index.php" class="back-btn">← Kembali</a>
         <h1>📋 Buat Pesanan Baru</h1>
         <div class="subtitle">Isi data pelanggan Anda</div>
@@ -45,24 +46,28 @@ $tarif = getTarif();
 
         <div class="card">
             <form method="POST">
-                <div class="form-group">
-                    <label>Nama Pelanggan</label>
-                    <input type="text" name="nama" placeholder="Masukkan nama lengkap"
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label for="nama">Nama Pelanggan</label>
+                    <input class="input-field" type="text" id="nama" name="nama"
+                           placeholder="Masukkan nama lengkap"
                            value="<?= htmlspecialchars($_POST['nama'] ?? '') ?>" required>
                 </div>
 
-                <div class="form-group">
-                    <label>Nomor Telepon</label>
-                    <input type="tel" name="telepon" placeholder="08xx xxxx xxxx"
+                <div class="form-group" style="margin-bottom:18px;">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input class="input-field" type="tel" id="telepon" name="telepon"
+                           placeholder="08xx xxxx xxxx"
                            value="<?= htmlspecialchars($_POST['telepon'] ?? '') ?>" required>
                 </div>
 
-                <div class="info-box info-tarif">
-                    <strong>Tarif:</strong><br>
-                    Rp <?= number_format($tarif, 0, ',', '.') ?>/kg — Harga akan dihitung berdasarkan berat padi setelah penimbangan.
+                <div class="tarif-info-box" style="margin-bottom:18px;">
+                    <strong>💰 Tarif saat ini: Rp <?= number_format($tarif, 0, ',', '.') ?>/kg</strong>
+                    Total dihitung berdasarkan berat padi setelah penimbangan.
                 </div>
 
-                <button type="submit" class="btn btn-orange">Lanjut ke Penimbangan →</button>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Lanjut ke Penimbangan →
+                </button>
             </form>
         </div>
     </div>

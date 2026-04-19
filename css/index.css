@@ -1,117 +1,63 @@
-.app-wrapper {
-    max-width: 420px;
-    margin: auto;
-    min-height: 100vh;
-    background: #e9eeec;
-}
+/* === INDEX.CSS — Halaman Utama Kiosk === */
 
 .kiosk-header {
-    background: #0ea44b;
-    color: white;
     text-align: center;
-    padding: 25px 15px;
+    padding: 28px 16px 22px;
 }
+.kiosk-header h1 { font-size: 22px; margin-bottom: 4px; }
+.kiosk-header p  { font-size: 13px; opacity: .88; }
 
-.kiosk-header h1 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-.kiosk-header p {
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-.content {
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 20px;
+/* Antrian hero card */
+.card-antrian-hero {
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dk) 100%);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: 24px 20px;
+    box-shadow: 0 8px 24px rgba(14,164,75,.3);
 }
+.antrian-label     { font-size: 13px; opacity: .85; font-weight: 500; }
+.antrian-number    { font-size: 56px; font-weight: 800; line-height: 1.1; margin: 6px 0; letter-spacing: -1px; }
+.antrian-keterangan{ font-size: 12px; opacity: .8; }
 
-.antrian-label {
-    font-size: 14px;
-    color: #777;
-}
-
-.antrian-number {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #0ea44b;
-}
-
-.antrian-keterangan {
-    font-size: 13px;
-    color: #888;
-}
-
+/* Menu items */
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-    margin-bottom: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
-    transition: 0.2s;
+    gap: 14px;
+    background: var(--clr-surface);
+    padding: 16px 18px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
-
 .menu-item:hover {
     transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
+.menu-item:active { transform: translateY(0); }
 
 .menu-icon {
-    font-size: 24px;
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    font-size: 22px;
+    flex-shrink: 0;
 }
+.icon-orange { background: var(--clr-orange-lt); }
+.icon-blue   { background: var(--clr-blue-lt); }
+.icon-green  { background: var(--clr-primary-lt); }
 
-.icon-orange {
-    background: #fff3e6;
-}
+.menu-text h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.menu-text p  { font-size: 12px; color: var(--clr-text-3); }
 
-.icon-blue {
-    background: #e6f0ff;
-}
-
-.icon-green {
-    background: #e6fff0;
-}
-
-.menu-item h3 {
+/* Chevron arrow */
+.menu-chevron {
+    margin-left: auto;
+    color: var(--clr-text-3);
     font-size: 16px;
-    margin-bottom: 3px;
-}
-
-.menu-item p {
-    font-size: 13px;
-    color: #777;
-}
-
-.btn-login-staff {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    padding: 16px;
-    border-radius: 18px;
-    background: #1e3a5f;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.btn-login-staff:hover {
-    background: #162c49;
+    flex-shrink: 0;
 }

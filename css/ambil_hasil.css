@@ -1,0 +1,254 @@
+/* WRAPPER */
+.app-wrapper {
+    max-width: 420px;
+    margin: auto;
+    min-height: 100vh;
+    background: #e9eeec;
+}
+
+/* HEADER */
+.top-bar {
+    background: #0ea44b;
+    color: white;
+    padding: 18px 15px;
+    position: relative;
+}
+
+.top-bar h1 {
+    font-size: 18px;
+}
+
+/* BACK */
+.back-btn {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* CONTENT */
+.content {
+    padding: 16px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* HEADER SEARCH */
+.search-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-header-icon {
+    font-size: 28px;
+}
+
+.search-header-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.search-header-desc {
+    font-size: 12px;
+    color: #777;
+}
+
+/* DIVIDER */
+.divider {
+    height: 1px;
+    background: #eee;
+    margin: 12px 0;
+}
+
+/* FORM */
+.form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* SEARCH INPUT */
+.search-ambil {
+    display: flex;
+    gap: 8px;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.search-icon-abs {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 12px 12px 32px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #f9faf9;
+}
+
+/* BUTTON */
+.btn {
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 10px 14px;
+    font-size: 13px;
+}
+
+.btn-orange {
+    background: #0ea44b;
+    color: white;
+}
+
+.btn-green {
+    background: #0ea44b;
+    color: white;
+    width: 100%;
+    padding: 14px;
+    font-weight: bold;
+}
+
+/* BADGE */
+.badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.badge-selesai {
+    background: #eaf7ef;
+    color: #0ea44b;
+}
+
+.badge-antrian {
+    background: #fff4e6;
+    color: #e67e22;
+}
+
+.badge-proses {
+    background: #e6f0ff;
+    color: #2d6cdf;
+}
+
+.badge-diambil {
+    background: #eee;
+    color: #666;
+}
+
+/* HASIL CARD HEADER */
+.hasil-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* NOMOR ANTRIAN */
+.tiket-number-sm {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.tiket-number-sm .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0ea44b;
+}
+
+/* DETAIL */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.label {
+    font-size: 13px;
+    color: #666;
+}
+
+.value {
+    font-size: 14px;
+}
+
+.value-green {
+    color: #0ea44b;
+    font-weight: bold;
+}
+
+.value-orange {
+    color: #0ea44b;
+    font-weight: bold;
+}
+
+/* BOX HASIL */
+.hasil-box {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    background: #f5fbf7;
+    border: 1px solid #d6f0df;
+}
+
+.hasil-box h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* ALERT */
+.alert {
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.alert-success {
+    background: #eaf7ef;
+    color: #0ea44b;
+}
+
+.alert-error {
+    background: #ffe6e6;
+    color: #b30000;
+}
+
+.alert-warning {
+    background: #fff4e6;
+    color: #e67e22;
+}
+
+/* ORDER ID */
+.order-id-footer {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 10px;
+    color: #888;
+}
+
+/* STATE COLOR CARD */
+.card-hasil-selesai {
+    border: 2px solid #0ea44b;
+}
+
+.card-hasil-proses {
+    border: 2px solid #e67e22;
+}
