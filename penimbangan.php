@@ -28,59 +28,66 @@ $berat_val = $_SESSION['pesanan_baru']['berat'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penimbangan Padi</title>
+    <title>Penimbangan Padi — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/penimbangan.css">
 </head>
 <body>
 <div class="app-wrapper">
-    <div class="top-bar">
+
+    <div class="top-bar top-bar-center">
         <a href="buat_pesanan.php" class="back-btn">← Kembali</a>
         <h1>⚖️ Penimbangan Padi</h1>
-        <div class="subtitle">ID: <?= htmlspecialchars($_SESSION['pesanan_baru']['order_id'] ?? 'Belum dibuat') ?></div>
+        <div class="subtitle">Masukkan atau timbang berat padi</div>
     </div>
 
     <div class="content">
+
         <?php if ($error): ?>
         <div class="alert alert-error">⚠️ <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <div class="card card-info-pelanggan">
-            <div class="detail-row">
-                <span class="label">👤 Nama Pelanggan</span>
-                <span class="value"><?= htmlspecialchars($pesanan['nama']) ?></span>
-            </div>
-            <div class="detail-row">
-                <span class="label">📞 Nomor Telepon</span>
-                <span class="value"><?= htmlspecialchars($pesanan['telepon']) ?></span>
+        <!-- Info pelanggan -->
+        <div class="card card-muted">
+            <div class="detail-list">
+                <div class="detail-row">
+                    <span class="detail-label">👤 Nama Pelanggan</span>
+                    <span class="detail-value"><?= htmlspecialchars($pesanan['nama']) ?></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">📞 Nomor Telepon</span>
+                    <span class="detail-value"><?= htmlspecialchars($pesanan['telepon']) ?></span>
+                </div>
             </div>
         </div>
 
+        <!-- Form berat -->
         <div class="card">
             <form method="POST" id="formBerat">
-                <div class="form-group">
-                    <label>Berat Padi (kg)</label>
+                <div class="form-group" style="margin-bottom:16px;">
+                    <label for="inputBerat">Berat Padi (kg)</label>
                     <div class="berat-input-row">
-                        <input type="number" name="berat" id="inputBerat"
+                        <input class="input-field" type="number" name="berat" id="inputBerat"
                                placeholder="0" step="0.1" min="0.1"
                                value="<?= $berat_val ?>"
                                oninput="updateDisplay(this.value)" required>
-                        <button type="button" class="btn btn-gray btn-timbang" onclick="simulasiTimbang()">
-                            ⚡ Timbang Otomatis
+                        <button type="button" class="btn-simulate" onclick="simulasiTimbang()">
+                            ⚡ Otomatis
                         </button>
                     </div>
                 </div>
 
                 <div class="weight-display" id="weightDisplay">
                     <div class="weight-num" id="weightNum"><?= $berat_val ?: '0' ?></div>
-                    <div class="weight-unit">kg</div>
+                    <div class="weight-unit">kilogram</div>
                 </div>
 
-                <button type="submit" class="btn btn-orange" style="margin-top:16px;">
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top:16px;">
                     Lanjut ke Pembayaran →
                 </button>
             </form>
         </div>
+
     </div>
 </div>
 
@@ -88,6 +95,7 @@ $berat_val = $_SESSION['pesanan_baru']['berat'] ?? '';
 function updateDisplay(val) {
     var num = parseFloat(val) || 0;
     document.getElementById('weightNum').textContent = num % 1 === 0 ? num : num.toFixed(1);
+    document.getElementById('weightDisplay').classList.toggle('active', num > 0);
 }
 
 function simulasiTimbang() {
@@ -95,9 +103,12 @@ function simulasiTimbang() {
     document.getElementById('inputBerat').value = berat;
     updateDisplay(berat);
     var d = document.getElementById('weightDisplay');
-    d.style.transform = 'scale(1.05)';
-    setTimeout(function() { d.style.transform = 'scale(1)'; }, 200);
+    d.style.transform = 'scale(1.04)';
+    setTimeout(function() { d.style.transform = 'scale(1)'; }, 180);
 }
+
+// Init
+updateDisplay(document.getElementById('inputBerat').value);
 </script>
 </body>
 </html>

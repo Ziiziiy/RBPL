@@ -1,207 +1,102 @@
-/* WRAPPER */
-.app-wrapper {
-    max-width: 420px;
-    margin: auto;
-    min-height: 100vh;
-    background: #e9eeec;
-}
-
-/* HEADER */
-.top-bar {
-    background: #0ea44b;
-    color: white;
-    padding: 18px 15px;
-    position: relative;
-}
-
-.top-bar h1 {
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-
-.subtitle {
-    font-size: 12px;
-    opacity: 0.9;
-}
-
-/* BACK */
-.back-btn {
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-/* REFRESH */
+/* Refresh button di header */
 .refresh-btn {
-    background: rgba(255,255,255,0.2);
-    padding: 6px 10px;
-    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
     font-size: 12px;
-    color: white;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--transition);
+    white-space: nowrap;
 }
+.refresh-btn:hover { background: rgba(255,255,255,.3); }
 
-/* CONTENT */
-.content {
-    padding: 16px;
-}
-
-/* EMPTY STATE */
-.empty-state {
-    text-align: center;
-    padding: 30px 20px;
-}
-
-.empty-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-/* CARD ANTRIAN */
+/* Antrian card */
 .antrian-card {
     display: flex;
-    gap: 12px;
-    background: white;
-    border-radius: 18px;
-    padding: 14px;
-    margin-bottom: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    gap: 14px;
+    background: var(--clr-surface);
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    box-shadow: var(--shadow-md);
+    align-items: flex-start;
 }
 
-/* NOMOR BESAR */
-.antrian-number-badge-lg {
-    min-width: 60px;
-    height: 60px;
-    background: #0ea44b;
-    color: white;
-    border-radius: 14px;
-    font-size: 22px;
-    font-weight: bold;
+/* Nomor badge besar */
+.antrian-badge {
+    min-width: 58px;
+    height: 58px;
+    background: var(--clr-primary);
+    color: #fff;
+    border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+}
+.antrian-badge .no-label { font-size: 9px; font-weight: 700; opacity: .8; text-transform: uppercase; letter-spacing: .5px; }
+.antrian-badge .no-num   { font-size: 24px; font-weight: 900; line-height: 1; }
+
+/* Card sedang diproses */
+.antrian-card.is-proses .antrian-badge {
+    background: linear-gradient(135deg, var(--clr-blue) 0%, #1a52c2 100%);
+    box-shadow: 0 4px 12px rgba(45,108,223,.3);
 }
 
-.antrian-number-badge-lg span {
-    font-size: 10px;
-    opacity: 0.8;
-}
+/* Info dalam card */
+.antrian-info { flex: 1; min-width: 0; }
+.antrian-name { font-size: 15px; font-weight: 800; color: var(--clr-text); margin-bottom: 4px; word-break: break-word; }
+.antrian-meta { font-size: 12px; color: var(--clr-text-3); margin-bottom: 6px; }
+.antrian-sisa { font-size: 13px; font-weight: 700; color: var(--clr-primary); }
 
-/* BADGE STATUS */
-.badge {
-    padding: 4px 8px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.badge-proses {
-    background: #e6f7ff;
-    color: #0077b6;
-}
-
-.badge-antrian {
-    background: #fff4e6;
-    color: #e67e22;
-}
-
-/* WAKTU TERSISA */
-.waktu-tersisa {
-    margin-top: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #0ea44b;
-}
-
-/* ORDER ID BOX */
+/* Order ID box */
 .order-id-box {
-    margin-top: 8px;
-    background: #f5f5f5;
-    border-radius: 10px;
-    padding: 8px;
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 11px;
+    background: var(--clr-surface-2);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    margin-top: 8px;
     flex-wrap: wrap;
 }
+.order-id-label { font-size: 11px; color: var(--clr-text-3); }
+.order-id-value { font-size: 11px; font-family: 'Courier New', monospace; color: var(--clr-text); font-weight: 600; flex: 1; }
 
-.order-id-label {
-    color: #777;
-}
-
-.order-id-value {
-    font-family: monospace;
-    font-size: 11px;
-}
-
-/* COPY BUTTON */
 .copy-btn {
     margin-left: auto;
-    background: #ddd;
+    background: var(--clr-border);
     border: none;
-    padding: 4px 6px;
+    padding: 3px 8px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 11px;
+    font-weight: 600;
+    color: var(--clr-text-2);
+    transition: background var(--transition), color var(--transition);
 }
+.copy-btn:hover { background: #c0ccc3; }
+.copy-btn.copied { background: var(--clr-primary); color: #fff; }
 
-.copy-btn.copied {
-    background: #0ea44b;
-    color: white;
-}
-
-/* REFRESH INFO */
+/* Live indicator */
 .refresh-info {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     font-size: 12px;
-    color: #777;
-    margin-top: 10px;
+    color: var(--clr-text-3);
 }
-
 .refresh-dot {
     width: 8px;
     height: 8px;
-    background: #0ea44b;
+    background: var(--clr-primary);
     border-radius: 50%;
-    animation: blink 1s infinite;
+    animation: blink 1.2s ease-in-out infinite;
 }
-
 @keyframes blink {
-    0%,100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
-
-/* BUTTON */
-.btn-orange {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    border-radius: 16px;
-    background: #0ea44b;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* TOAST */
-#toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: #0ea44b;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-#toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
+    0%, 100% { opacity: 1; }
+    50%       { opacity: .25; }
 }

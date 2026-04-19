@@ -3,7 +3,7 @@ session_start();
 require_once 'database.php';
 
 $db             = getDB();
-$antrian_list   = $db->query("SELECT * FROM pesanan WHERE status IN ('antrian', 'proses') ORDER BY nomor_antrian ASC")->fetchAll(PDO::FETCH_ASSOC);
+$antrian_list   = $db->query("SELECT * FROM pesanan WHERE status IN ('antrian','proses') ORDER BY nomor_antrian ASC")->fetchAll(PDO::FETCH_ASSOC);
 $waktu_sekarang = date('H.i.s');
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ $waktu_sekarang = date('H.i.s');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Antrian</title>
+    <title>Status Antrian — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/status_antrian.css">
     <meta http-equiv="refresh" content="10">
@@ -21,7 +21,7 @@ $waktu_sekarang = date('H.i.s');
 
     <div class="top-bar">
         <a href="index.php" class="back-btn">← Kembali</a>
-        <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div class="top-bar-row">
             <div>
                 <h1>📋 Status Antrian</h1>
                 <div class="subtitle" id="waktuDisplay"><?= $waktu_sekarang ?></div>
@@ -33,49 +33,46 @@ $waktu_sekarang = date('H.i.s');
     <div class="content">
 
         <?php if (empty($antrian_list)): ?>
-        <div class="empty-state card">
+        <div class="card empty-state">
             <div class="empty-icon">✅</div>
-            <p style="font-weight:700; font-size:16px; color:#555;">Tidak ada antrian saat ini</p>
-            <p style="margin-top:6px;">Semua pesanan sudah selesai diproses.</p>
+            <h3>Tidak ada antrian saat ini</h3>
+            <p>Semua pesanan sudah selesai diproses.</p>
         </div>
 
         <?php else: ?>
         <?php foreach ($antrian_list as $item):
-            $selesai_parts  = explode('.', $item['estimasi_selesai']);
-            $selesai_total  = (intval($selesai_parts[0] ?? 0) * 60) + intval($selesai_parts[1] ?? 0);
-            $sekarang_total = intval(date('H')) * 60 + intval(date('i'));
-            $sisa_menit     = max(0, $selesai_total - $sekarang_total);
-            $is_proses      = ($item['status'] === 'proses');
+            $parts        = explode('.', $item['estimasi_selesai']);
+            $selesai_tot  = intval($parts[0] ?? 0) * 60 + intval($parts[1] ?? 0);
+            $sekarang_tot = intval(date('H')) * 60 + intval(date('i'));
+            $sisa_menit   = max(0, $selesai_tot - $sekarang_tot);
+            $is_proses    = ($item['status'] === 'proses');
         ?>
 
-        <div class="antrian-card">
+        <div class="antrian-card <?= $is_proses ? 'is-proses' : '' ?>">
 
-            <div class="antrian-number-badge-lg">
-                <?= $item['nomor_antrian'] ?>
-                <span>No.</span>
+            <div class="antrian-badge">
+                <span class="no-label">No.</span>
+                <span class="no-num"><?= $item['nomor_antrian'] ?></span>
             </div>
 
-            <div style="flex:1; min-width:0;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:6px;">
-                    <h4 style="font-size:15px; font-weight:800; margin:0; color:#222; word-break:break-word;">
-                        <?= htmlspecialchars($item['nama_pelanggan']) ?>
-                    </h4>
+            <div class="antrian-info">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:2px;">
+                    <div class="antrian-name"><?= htmlspecialchars($item['nama_pelanggan']) ?></div>
                     <span class="badge <?= $is_proses ? 'badge-proses' : 'badge-antrian' ?>" style="flex-shrink:0;">
-                        <?= $is_proses ? '⚙️ Dalam Proses' : '⏳ Dalam Antrian' ?>
+                        <?= $is_proses ? '⚙️ Proses' : '⏳ Antrian' ?>
                     </span>
                 </div>
 
-                <p style="margin-top:4px; font-size:13px; color:#777;">
+                <div class="antrian-meta">
                     Selesai: <strong><?= $item['estimasi_selesai'] ?></strong>
-                    &nbsp;|&nbsp;
+                    &nbsp;·&nbsp;
                     Berat: <strong><?= number_format($item['berat_padi'], 0) ?> kg</strong>
-                </p>
+                </div>
 
-                <div class="waktu-tersisa">⏱️ <?= $sisa_menit ?> menit lagi</div>
+                <div class="antrian-sisa">⏱ <?= $sisa_menit ?> menit lagi</div>
 
-                <!-- ID Pesanan -->
                 <div class="order-id-box">
-                    <span class="order-id-label">🆔 ID:</span>
+                    <span class="order-id-label">ID:</span>
                     <span class="order-id-value"><?= htmlspecialchars($item['order_id']) ?></span>
                     <button class="copy-btn"
                             onclick="salinId('<?= htmlspecialchars($item['order_id'], ENT_QUOTES) ?>', this)"
@@ -91,12 +88,11 @@ $waktu_sekarang = date('H.i.s');
 
         <div class="refresh-info">
             <div class="refresh-dot"></div>
-            Status antrian diperbarui secara otomatis setiap 10 detik
+            Diperbarui otomatis setiap 10 detik
         </div>
 
-        <a href="buat_pesanan.php" class="btn btn-orange" style="margin-top:16px;">
-            + Buat Pesanan Baru
-        </a>
+        <a href="buat_pesanan.php" class="btn btn-primary btn-block">+ Buat Pesanan Baru</a>
+
     </div>
 </div>
 
@@ -106,7 +102,7 @@ $waktu_sekarang = date('H.i.s');
 function salinId(orderId, btn) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(orderId)
-            .then(function() { tampilkanFeedback(btn); })
+            .then(function() { tampilFeedback(btn); })
             .catch(function() { salinFallback(orderId, btn); });
     } else {
         salinFallback(orderId, btn);
@@ -116,17 +112,16 @@ function salinId(orderId, btn) {
 function salinFallback(teks, btn) {
     var input = document.createElement('input');
     input.value = teks;
-    input.style.position = 'fixed';
-    input.style.opacity = '0';
+    input.style.cssText = 'position:fixed;opacity:0;';
     document.body.appendChild(input);
     input.focus();
     input.select();
     try { document.execCommand('copy'); } catch(e) {}
     document.body.removeChild(input);
-    tampilkanFeedback(btn);
+    tampilFeedback(btn);
 }
 
-function tampilkanFeedback(btn) {
+function tampilFeedback(btn) {
     var semula = btn.innerHTML;
     btn.innerHTML = '✅ Tersalin!';
     btn.classList.add('copied');
@@ -141,11 +136,9 @@ function tampilkanFeedback(btn) {
 
 function updateWaktu() {
     var now = new Date();
-    var h = String(now.getHours()).padStart(2,'0');
-    var m = String(now.getMinutes()).padStart(2,'0');
-    var s = String(now.getSeconds()).padStart(2,'0');
+    var pad = function(n) { return String(n).padStart(2, '0'); };
     var el = document.getElementById('waktuDisplay');
-    if (el) el.textContent = h+'.'+m+'.'+s;
+    if (el) el.textContent = pad(now.getHours()) + '.' + pad(now.getMinutes()) + '.' + pad(now.getSeconds());
 }
 setInterval(updateWaktu, 1000);
 </script>

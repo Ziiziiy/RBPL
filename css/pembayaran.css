@@ -1,143 +1,50 @@
-/* WRAPPER */
-.app-wrapper {
-    max-width: 420px;
-    margin: auto;
-    min-height: 100vh;
-    background: #e9eeec;
-}
-
-/* HEADER */
-.top-bar {
-    background: #0ea44b;
-    color: white;
-    padding: 20px 15px;
-    text-align: center;
-    position: relative;
-}
-
-.top-bar h1 {
-    font-size: 20px;
-}
-
-/* BACK BUTTON */
-.back-btn {
-    position: absolute;
-    left: 15px;
-    top: 22px;
-    color: white;
-    font-size: 16px;
-}
-
-/* CONTENT */
-.content {
-    padding: 20px;
-}
-
-/* CARD */
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* TITLE */
-.ringkasan-title {
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-/* DETAIL ROW */
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.label {
-    font-size: 13px;
-    color: #666;
-}
-
-.value {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* DIVIDER */
-.divider {
-    height: 1px;
-    background: #eee;
-    margin: 12px 0;
-}
-
-/* TOTAL */
-.total-bayar-label {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.total-bayar-value {
-    font-size: 20px;
-    font-weight: bold;
-    color: #0ea44b;
-}
-
-/* PAYMENT OPTION */
+/* Metode pembayaran card */
 .payment-option {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px;
-    border-radius: 16px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--clr-border);
     cursor: pointer;
-    transition: 0.2s;
+    transition: border-color var(--transition), background var(--transition), transform var(--transition);
 }
-
-.payment-option:hover {
-    transform: translateY(-2px);
-}
-
-/* ICON */
-.pay-icon {
-    font-size: 22px;
-}
-
-/* TEXT */
-.payment-option h4 {
-    font-size: 14px;
-    margin-bottom: 2px;
-}
-
-.payment-option p {
-    font-size: 12px;
-    color: #777;
-}
-
-/* SELECTED STATE */
+.payment-option:hover { transform: translateY(-1px); border-color: #b5ccc0; }
 .payment-option.selected {
-    border: 2px solid #0ea44b;
-    background: #eaf7ef;
+    border-color: var(--clr-primary);
+    background: var(--clr-primary-lt);
 }
 
-/* BUTTON */
-.btn-orange {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 18px;
-    background: #0ea44b;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: 0.2s;
+.pay-icon { font-size: 24px; flex-shrink: 0; }
+.pay-text h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.pay-text p  { font-size: 12px; color: var(--clr-text-3); }
+
+.pay-check {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--clr-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background var(--transition), border-color var(--transition);
+    font-size: 11px;
+    color: transparent;
+}
+.payment-option.selected .pay-check {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: #fff;
 }
 
-.btn-orange:hover {
-    background: #0c8a3e;
+/* Total area */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 0;
 }
+.total-label { font-size: 14px; font-weight: 700; }
+.total-value { font-size: 22px; font-weight: 800; color: var(--clr-primary); }
