@@ -1,0 +1,133 @@
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-header-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.order-id-info {
+    font-size: 12px;
+    color: var(--clr-text-3);
+    margin-bottom: 6px;
+}
+
+.antrian-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.antrian-badge-xl {
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    background: var(--clr-primary-lt);
+    color: var(--clr-primary);
+    font-weight: 800;
+}
+
+.antrian-badge-label {
+    font-size: 13px;
+    color: var(--clr-text-2);
+}
+
+.berat-value {
+    font-weight: 800;
+    color: var(--clr-primary);
+}
+
+.waktu-proses-text {
+    font-size: 12px;
+    color: var(--clr-text-3);
+}
+
+.proses-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mulai-center {
+    text-align: center;
+    padding: 10px;
+}
+
+.icon-mulai {
+    font-size: 34px;
+    margin-bottom: 6px;
+}
+
+.mulai-desc {
+    font-size: 13px;
+    color: var(--clr-text-2);
+}
+
+.input-hasil-title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ESTIMASI */
+.estimasi-bar {
+    background: var(--clr-blue-lt);
+    color: var(--clr-blue-text);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+}
+
+.card-perhitungan {
+    background: var(--clr-surface-2);
+    border: 1px dashed var(--clr-border);
+}
+
+/* highlight angka */
+.card-perhitungan .value {
+    font-weight: 700;
+}
+
+.hasil-selesai-box {
+    background: var(--clr-primary-lt);
+    border-left: 4px solid var(--clr-primary);
+}
+
+.selesai-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hasil-value {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.btn-green {
+    background: var(--clr-primary);
+    color: #fff;
+}
+
+.btn-blue {
+    background: var(--clr-blue);
+    color: #fff;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--clr-border);
+    background: var(--clr-surface-2);
+    font-size: 14px;
+}
+
+input[type="number"]:focus {
+    border-color: var(--clr-primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(14,164,75,.12);
+}

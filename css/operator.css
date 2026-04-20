@@ -1,0 +1,184 @@
+/* =========================
+   TOP BAR EXTENSION
+========================= */
+.topbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,.2);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: #fff;
+}
+
+/* JAM */
+.waktu-display {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* =========================
+   STAT GRID
+========================= */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-num {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--clr-text-2);
+}
+
+/* VARIANTS */
+.stat-blue {
+    background: var(--clr-blue-lt);
+    color: var(--clr-blue);
+}
+
+.stat-orange {
+    background: var(--clr-orange-lt);
+    color: var(--clr-orange);
+}
+
+.stat-green {
+    background: var(--clr-primary-lt);
+    color: var(--clr-primary);
+}
+
+/* =========================
+   TABS
+========================= */
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--clr-surface-2);
+    color: var(--clr-text-2);
+    transition: var(--transition);
+}
+
+.tab.active {
+    background: var(--clr-primary);
+    color: #fff;
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.refresh-btn-content {
+    font-size: 12px;
+    background: var(--clr-border);
+    padding: 5px 8px;
+    border-radius: var(--radius-sm);
+}
+
+/* =========================
+   OPERATOR CARD
+========================= */
+.operator-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* HEADER */
+.operator-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.operator-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* NOMOR */
+.antrian-number-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--clr-primary-lt);
+    color: var(--clr-primary);
+}
+
+.antrian-badge-sm {
+    font-size: 11px;
+}
+
+/* khusus selesai */
+.antrian-number-badge-green {
+    background: var(--clr-primary);
+    color: #fff;
+}
+
+/* BODY */
+.operator-card-body {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--clr-text-2);
+}
+
+/* HASIL TEXT */
+.hasil-text {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--clr-primary);
+    font-weight: 600;
+}
+
+.empty-state.card {
+    padding: 24px 16px;
+}
+
+.btn-orange {
+    background: var(--clr-orange);
+    color: #fff;
+}
+
+.btn-gray {
+    background: var(--clr-border);
+    color: var(--clr-text);
+}

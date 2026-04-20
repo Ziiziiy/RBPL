@@ -1,0 +1,147 @@
+.topbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,.2);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: #fff;
+}
+
+.owner-stats {
+    background: var(--clr-surface);
+    border-radius: var(--radius-xl);
+    padding: 18px;
+    box-shadow: var(--shadow-md);
+}
+
+.owner-stats h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* GRID */
+.owner-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.owner-stat-item {
+    background: var(--clr-surface-2);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    text-align: center;
+}
+
+.owner-stat-item .val {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--clr-primary);
+}
+
+.owner-stat-item .lbl {
+    font-size: 12px;
+    color: var(--clr-text-2);
+}
+
+.owner-pendapatan {
+    background: var(--clr-primary);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    text-align: center;
+}
+
+.owner-pendapatan .lbl {
+    font-size: 12px;
+    opacity: .9;
+}
+
+.owner-pendapatan .val {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--clr-surface);
+    padding: 14px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.menu-item:hover {
+    transform: translateY(-2px);
+}
+
+/* ICON */
+.menu-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* VARIAN ICON */
+.icon-blue {
+    background: var(--clr-blue-lt);
+    color: var(--clr-blue);
+}
+
+.icon-purple {
+    background: #f1ecff;
+    color: #6b4ce6;
+}
+
+.icon-green {
+    background: var(--clr-primary-lt);
+    color: var(--clr-primary);
+}
+
+/* TEXT */
+.menu-item h3 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.menu-item p {
+    font-size: 12px;
+    color: var(--clr-text-2);
+}
+
+.akses-cepat-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* BUTTON CUSTOM */
+.btn-akses-cepat {
+    background: var(--clr-blue);
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+/* tambahan */
+.btn-white {
+    background: #fff;
+    border: 1px solid var(--clr-border);
+    color: var(--clr-text);
+}
+
+.btn-gray {
+    background: var(--clr-border);
+    color: var(--clr-text);
+}
