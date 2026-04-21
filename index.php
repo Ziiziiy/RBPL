@@ -2,9 +2,12 @@
 session_start();
 require_once 'database.php';
 
-$db             = getDB();
-$antrian_aktif  = $db->query("SELECT COUNT(*) FROM pesanan WHERE status IN ('antrian','proses')")->fetchColumn();
-$nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan")->fetchColumn();
+$db       = getDB();
+$hari_ini = date('Y-m-d');
+
+$antrian_aktif  = $db->query("SELECT COUNT(*) FROM pesanan WHERE status IN ('antrian','proses') AND DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
+
+$nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -18,17 +21,25 @@ $nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan")->fetchCol
 <body>
 <div class="app-wrapper">
 
-    <div class="top-bar kiosk-header">
-        <h1>🌾 Penggilingan Padi</h1>
+    <div class="kiosk-header">
+        <div class="kiosk-logo">🌾</div>
+        <h1>Penggilingan Padi</h1>
         <p>Sistem Antrian Digital BangunRejo</p>
+        <div class="kiosk-date"><?= date('l, d F Y') ?></div>
     </div>
 
     <div class="content">
 
         <div class="card-antrian-hero">
-            <div class="antrian-label">Nomor Antrian Terakhir</div>
+            <div class="antrian-label">Antrian Terakhir Hari Ini</div>
             <div class="antrian-number"><?= $nomor_terakhir ?: '—' ?></div>
-            <div class="antrian-keterangan"><?= $antrian_aktif ?> antrian aktif saat ini</div>
+            <div class="antrian-keterangan">
+                <?php if ($antrian_aktif > 0): ?>
+                    <?= $antrian_aktif ?> antrian aktif saat ini
+                <?php else: ?>
+                    Tidak ada antrian aktif
+                <?php endif; ?>
+            </div>
         </div>
 
         <a href="buat_pesanan.php" class="menu-item">
@@ -58,9 +69,7 @@ $nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan")->fetchCol
             <span class="menu-chevron">›</span>
         </a>
 
-        <a href="login.php" class="btn btn-navy btn-block" style="margin-top:4px;">
-            👤 Login Staff
-        </a>
+        <a href="login.php" class="btn btn-navy btn-block">👤 Login Staff</a>
 
     </div>
 </div>

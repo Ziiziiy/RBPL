@@ -1,0 +1,197 @@
+/* ── TOPBAR EXTENSION ── */
+.topbar-row-log {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.refresh-btn {
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 6px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+.refresh-btn:hover { background: rgba(255,255,255,.3); }
+
+/* ── STAT GRID ── */
+.stat-grid-log {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.stat-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius-lg);
+    padding: 14px 8px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+.stat-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--clr-text);
+    line-height: 1;
+}
+.stat-num.stat-customer { color: var(--clr-blue); }
+.stat-num.stat-owner    { color: #6b4ce6; }
+.stat-label {
+    font-size: 11px;
+    color: var(--clr-text-3);
+    margin-top: 4px;
+}
+.stat-orange .stat-num { color: var(--clr-orange); }
+
+/* ── FILTER CARD ── */
+.card-filter-log { background: var(--clr-surface); }
+
+.filter-log-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+.search-wrapper .search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    pointer-events: none;
+}
+.search-wrapper input {
+    width: 100%;
+    padding: 11px 13px 11px 34px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--clr-border);
+    background: var(--clr-surface-2);
+    font-size: 13px;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.search-wrapper input:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 3px rgba(14,164,75,.1);
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+}
+.filter-row input[type="date"],
+.filter-row select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--clr-border);
+    background: var(--clr-surface-2);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--transition);
+}
+.filter-row input[type="date"]:focus,
+.filter-row select:focus { border-color: var(--clr-primary); }
+
+.btn-row {
+    display: flex;
+    gap: 8px;
+}
+.btn-row .btn { flex: 1; }
+
+.btn-orange { background: var(--clr-primary); color: #fff; }
+.btn-orange:hover { background: var(--clr-primary-dk); }
+.btn-gray   { background: var(--clr-border); color: var(--clr-text); }
+.btn-gray:hover { background: #d4dbd6; }
+.btn-red    { background: #dc2626; color: #fff; width: 100%; margin-top: 8px; }
+.btn-red:hover { background: #b91c1c; }
+
+.btn-hapus-log { margin-top: 10px; }
+
+/* ── SECTION TITLE ── */
+.section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--clr-text-2);
+    margin-bottom: -4px;
+}
+
+/* ── LOG ITEM ── */
+.log-item {
+    background: var(--clr-surface);
+    border-radius: var(--radius-xl);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-left: 3px solid var(--clr-border);
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.log-header-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.log-username {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--clr-text);
+}
+
+.log-role-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+}
+.role-operator { background: var(--clr-orange-lt); color: var(--clr-orange); }
+.role-owner    { background: #f1ecff; color: #6b4ce6; }
+.role-customer { background: var(--clr-blue-lt); color: var(--clr-blue); }
+
+/* border kiri per role */
+.log-item:has(.role-operator) { border-left-color: var(--clr-orange); }
+.log-item:has(.role-owner)    { border-left-color: #6b4ce6; }
+.log-item:has(.role-customer) { border-left-color: var(--clr-blue); }
+
+.log-waktu {
+    font-size: 11px;
+    color: var(--clr-text-3);
+}
+
+.log-aksi {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--clr-text);
+}
+
+.log-detail {
+    font-size: 12px;
+    color: var(--clr-text-2);
+    background: var(--clr-surface-2);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    line-height: 1.5;
+}
+
+/* ── FOOTER ── */
+.log-footer {
+    font-size: 12px;
+    text-align: center;
+    color: var(--clr-text-3);
+    padding: 4px 0 8px;
+}
