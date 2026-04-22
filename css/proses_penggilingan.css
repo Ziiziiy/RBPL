@@ -1,133 +1,191 @@
-.status-header {
+.pg-antrian-hero {
+    text-align: center;
+    padding: 4px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.pg-antrian-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--clr-primary);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+.pg-antrian-sub {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--clr-text-3);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+.pg-status-badge { margin-top: 6px; }
+
+/* ── BERAT highlight ── */
+.pg-berat-val {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--clr-primary);
+}
+
+/* ── ACTION CARD (mulai / input hasil) ── */
+.pg-action-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ─── SECTION: MULAI ─── */
+.pg-mulai-center {
+    text-align: center;
+    padding: 10px 0 4px;
+}
+.pg-mulai-icon  { font-size: 42px; margin-bottom: 8px; }
+.pg-mulai-title { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+.pg-mulai-desc  { font-size: 13px; color: var(--clr-text-2); }
+
+.pg-btn-mulai {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    border-radius: var(--radius-xl);
+}
+
+/* ─── SECTION: INPUT HASIL ─── */
+.pg-input-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+/* Estimasi bar */
+.pg-estimasi-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: var(--clr-blue-lt);
+    color: var(--clr-blue-text);
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+}
+.pg-estimasi-bar strong { color: var(--clr-blue); }
+
+/* Grid dua kolom input */
+.pg-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.pg-input-hasil {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    padding: 14px 10px;
+    border-width: 2px;
+}
+.pg-input-hasil:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 4px rgba(14,164,75,.12);
+}
+
+/* Kotak kalkulasi realtime */
+.pg-calc-box {
+    background: var(--clr-surface-2);
+    border: 1.5px dashed var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.pg-calc-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.pg-calc-label { font-size: 13px; color: var(--clr-text-2); }
+.pg-calc-val   { font-size: 15px; font-weight: 800; color: var(--clr-text); }
+.pg-calc-susut { color: var(--clr-orange); }
+.pg-calc-rendemen { color: var(--clr-text); }
 
-.status-header-title {
-    font-size: 15px;
-    font-weight: 700;
+/* Rendemen color states */
+.rendemen-ok   { color: var(--clr-primary) !important; }
+.rendemen-warn { color: var(--clr-orange)  !important; }
+.rendemen-low  { color: var(--clr-danger)  !important; }
+
+/* ─── SECTION: SELESAI ─── */
+.pg-selesai-card {
+    border-top: 4px solid var(--clr-primary);
 }
-
-.order-id-info {
-    font-size: 12px;
-    color: var(--clr-text-3);
-    margin-bottom: 6px;
-}
-
-.antrian-badge-row {
+.pg-selesai-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 14px;
+    margin-bottom: 4px;
 }
+.pg-selesai-icon  { font-size: 36px; flex-shrink: 0; }
+.pg-selesai-title { font-size: 18px; font-weight: 800; margin-bottom: 2px; }
+.pg-selesai-sub   { font-size: 12px; color: var(--clr-text-3); }
 
-.antrian-badge-xl {
-    font-size: 18px;
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
+/* Grid 3 kolom hasil */
+.pg-hasil-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 4px 0;
+}
+.pg-hasil-item {
     background: var(--clr-primary-lt);
-    color: var(--clr-primary);
-    font-weight: 800;
-}
-
-.antrian-badge-label {
-    font-size: 13px;
-    color: var(--clr-text-2);
-}
-
-.berat-value {
-    font-weight: 800;
-    color: var(--clr-primary);
-}
-
-.waktu-proses-text {
-    font-size: 12px;
-    color: var(--clr-text-3);
-}
-
-.proses-section {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.mulai-center {
+    border-radius: var(--radius-lg);
+    padding: 14px 8px;
     text-align: center;
-    padding: 10px;
+}
+.pg-hasil-dedak    { background: var(--clr-orange-lt); }
+.pg-hasil-rendemen { background: var(--clr-blue-lt); }
+
+.pg-hasil-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--clr-primary);
+    line-height: 1;
+}
+.pg-hasil-dedak    .pg-hasil-num { color: var(--clr-orange); }
+.pg-hasil-rendemen .pg-hasil-num { color: var(--clr-blue); }
+
+.pg-hasil-lbl {
+    font-size: 11px;
+    color: var(--clr-text-3);
+    margin-top: 4px;
+    font-weight: 600;
 }
 
-.icon-mulai {
-    font-size: 34px;
-    margin-bottom: 6px;
-}
-
-.mulai-desc {
-    font-size: 13px;
+/* Total row di bawah grid */
+.pg-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--clr-surface-2);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 14px;
     color: var(--clr-text-2);
+    margin-top: 8px;
 }
-
-.input-hasil-title {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-/* ESTIMASI */
-.estimasi-bar {
-    background: var(--clr-blue-lt);
-    color: var(--clr-blue-text);
-    padding: 10px 12px;
-    border-radius: var(--radius-md);
-    font-size: 13px;
-}
-
-.card-perhitungan {
-    background: var(--clr-surface-2);
-    border: 1px dashed var(--clr-border);
-}
-
-/* highlight angka */
-.card-perhitungan .value {
-    font-weight: 700;
-}
-
-.hasil-selesai-box {
-    background: var(--clr-primary-lt);
-    border-left: 4px solid var(--clr-primary);
-}
-
-.selesai-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.hasil-value {
-    font-size: 15px;
+.pg-total-row strong {
+    font-size: 16px;
     font-weight: 800;
+    color: var(--clr-text);
 }
 
-.btn-green {
-    background: var(--clr-primary);
-    color: #fff;
-}
+/* ── Legacy support untuk label/value yg masih dipakai ── */
+.label { font-size: 13px; color: var(--clr-text-2); }
+.value { font-size: 13px; font-weight: 600; }
+.value-green { color: var(--clr-primary); font-weight: 700; }
 
-.btn-blue {
-    background: var(--clr-blue);
-    color: #fff;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 13px 14px;
-    border-radius: var(--radius-md);
-    border: 1.5px solid var(--clr-border);
-    background: var(--clr-surface-2);
-    font-size: 14px;
-}
-
-input[type="number"]:focus {
-    border-color: var(--clr-primary);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(14,164,75,.12);
-}
+.btn-blue  { background: var(--clr-blue);    color: #fff; }
+.btn-green { background: var(--clr-primary); color: #fff; }
+.btn-orange{ background: var(--clr-primary); color: #fff; width:100%; padding:14px; font-weight:700; border-radius:var(--radius-lg); border:none; cursor:pointer; }

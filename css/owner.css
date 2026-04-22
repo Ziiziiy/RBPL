@@ -129,3 +129,11 @@
 .btn-ghost { background: var(--clr-border);  color: var(--clr-text); }
 .btn-blue:hover  { opacity: .9; }
 .btn-ghost:hover { background: #d4dbd6; }
+
+/* Antrian aktif live row */
+.info-row-live {
+    background: #fff5f5;
+    border: 1px solid #fca5a5;
+}
+.info-row-live .info-row-label { color: #dc2626; }
+.info-row-live .info-row-value { color: #dc2626; font-weight: 800; }

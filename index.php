@@ -5,9 +5,17 @@ require_once 'database.php';
 $db       = getDB();
 $hari_ini = date('Y-m-d');
 
-$antrian_aktif  = $db->query("SELECT COUNT(*) FROM pesanan WHERE status IN ('antrian','proses') AND DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
+$antrian_aktif  = $db->query(
+    "SELECT COUNT(*) FROM pesanan WHERE status IN ('antrian','proses')"
+)->fetchColumn();
 
-$nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
+$nomor_terakhir = $db->query(
+    "SELECT MAX(nomor_antrian) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'"
+)->fetchColumn();
+
+$total_hari_ini = $db->query(
+    "SELECT COUNT(*) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'"
+)->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -35,11 +43,16 @@ $nomor_terakhir = $db->query("SELECT MAX(nomor_antrian) FROM pesanan WHERE DATE(
             <div class="antrian-number"><?= $nomor_terakhir ?: '—' ?></div>
             <div class="antrian-keterangan">
                 <?php if ($antrian_aktif > 0): ?>
-                    <?= $antrian_aktif ?> antrian aktif saat ini
+                    <span class="dot-live"></span> <?= $antrian_aktif ?> antrian aktif saat ini
                 <?php else: ?>
-                    Tidak ada antrian aktif
+                    ✅ Tidak ada antrian aktif
                 <?php endif; ?>
             </div>
+            <?php if ($total_hari_ini > 0): ?>
+            <div class="antrian-total-hari">
+                <?= $total_hari_ini ?> pesanan masuk hari ini
+            </div>
+            <?php endif; ?>
         </div>
 
         <a href="buat_pesanan.php" class="menu-item">

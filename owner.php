@@ -11,13 +11,45 @@ $staff    = $_SESSION['staff'];
 $db       = getDB();
 $hari_ini = date('Y-m-d');
 
-$total_pesanan    = $db->query("SELECT COUNT(*) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
-$total_selesai    = $db->query("SELECT COUNT(*) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini' AND status IN ('selesai','diambil')")->fetchColumn();
-$total_antrian    = $db->query("SELECT COUNT(*) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini' AND status IN ('antrian','proses')")->fetchColumn();
-$total_pendapatan = $db->query("SELECT COALESCE(SUM(total_bayar),0) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini' AND status IN ('selesai','diambil')")->fetchColumn();
-$total_berat      = $db->query("SELECT COALESCE(SUM(berat_padi),0) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'")->fetchColumn();
+$total_pesanan    = $db->query("
+    SELECT COUNT(*) FROM pesanan
+    WHERE DATE(waktu_pesan) = '$hari_ini'
+")->fetchColumn();
+
+$total_selesai    = $db->query("
+    SELECT COUNT(*) FROM pesanan
+    WHERE DATE(waktu_pesan) = '$hari_ini'
+      AND status IN ('selesai','diambil')
+")->fetchColumn();
+
+$total_antrian    = $db->query("
+    SELECT COUNT(*) FROM pesanan
+    WHERE DATE(waktu_pesan) = '$hari_ini'
+      AND status IN ('antrian','proses')
+")->fetchColumn();
+
+$total_pendapatan = $db->query("
+    SELECT COALESCE(SUM(total_bayar), 0) FROM pesanan
+    WHERE DATE(waktu_pesan) = '$hari_ini'
+      AND status IN ('selesai','diambil')
+")->fetchColumn();
+
+$total_berat      = $db->query("
+    SELECT COALESCE(SUM(berat_padi), 0) FROM pesanan
+    WHERE DATE(waktu_pesan) = '$hari_ini'
+")->fetchColumn();
+
 $bulan_ini        = date('Y-m');
-$pendapatan_bulan = $db->query("SELECT COALESCE(SUM(total_bayar),0) FROM pesanan WHERE strftime('%Y-%m',waktu_pesan) = '$bulan_ini' AND status IN ('selesai','diambil')")->fetchColumn();
+$pendapatan_bulan = $db->query("
+    SELECT COALESCE(SUM(total_bayar), 0) FROM pesanan
+    WHERE strftime('%Y-%m', waktu_pesan) = '$bulan_ini'
+      AND status IN ('selesai','diambil')
+")->fetchColumn();
+
+$antrian_aktif_now = $db->query("
+    SELECT COUNT(*) FROM pesanan
+    WHERE status IN ('antrian','proses')
+")->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -63,17 +95,24 @@ $pendapatan_bulan = $db->query("SELECT COALESCE(SUM(total_bayar),0) FROM pesanan
             </div>
 
             <div class="info-row">
-                <span class="info-row-label">⚖️ Total Berat Padi</span>
+                <span class="info-row-label">⚖️ Total Berat Padi Hari Ini</span>
                 <span class="info-row-value"><?= number_format($total_berat, 1) ?> kg</span>
             </div>
+
+            <?php if ($antrian_aktif_now > 0): ?>
+            <div class="info-row info-row-live">
+                <span class="info-row-label">🔴 Antrian Aktif Sekarang</span>
+                <span class="info-row-value"><?= $antrian_aktif_now ?> pesanan</span>
+            </div>
+            <?php endif; ?>
 
             <div class="pendapatan-box">
                 <div class="pendapatan-label">💰 Pendapatan Hari Ini</div>
                 <div class="pendapatan-value">Rp <?= number_format($total_pendapatan, 0, ',', '.') ?></div>
-                <div class="pendapatan-note">Hanya dari pesanan yang selesai/diambil</div>
+                <div class="pendapatan-note">Dari <?= $total_selesai ?> pesanan selesai/diambil</div>
             </div>
 
-            <div class="info-row" style="margin-top:8px;">
+            <div class="info-row">
                 <span class="info-row-label">📅 Pendapatan Bulan Ini</span>
                 <span class="info-row-value">Rp <?= number_format($pendapatan_bulan, 0, ',', '.') ?></span>
             </div>

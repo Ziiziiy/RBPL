@@ -28,7 +28,7 @@ function setupDatabase() {
         hasil_dedak         REAL DEFAULT 0,
         estimasi_selesai    TEXT DEFAULT '',
         estimasi_menit      INTEGER DEFAULT 0,
-        waktu_pesan         DATETIME DEFAULT CURRENT_TIMESTAMP,
+        waktu_pesan         DATETIME DEFAULT (datetime('now','localtime')),
         waktu_proses        DATETIME,
         waktu_selesai       DATETIME,
         waktu_diambil       DATETIME
@@ -37,7 +37,7 @@ function setupDatabase() {
     $db->exec("CREATE TABLE IF NOT EXISTS tarif (
         id           INTEGER PRIMARY KEY AUTOINCREMENT,
         harga_per_kg REAL NOT NULL DEFAULT 500,
-        updated_at   DATETIME DEFAULT CURRENT_TIMESTAMP
+        updated_at   DATETIME DEFAULT (datetime('now','localtime'))
     )");
 
     $db->exec("CREATE TABLE IF NOT EXISTS log_aktivitas (
@@ -46,7 +46,7 @@ function setupDatabase() {
         role     TEXT NOT NULL,
         aksi     TEXT NOT NULL,
         detail   TEXT DEFAULT '',
-        waktu    DATETIME DEFAULT CURRENT_TIMESTAMP
+        waktu    DATETIME DEFAULT (datetime('now','localtime'))
     )");
 
     $db->exec("CREATE TABLE IF NOT EXISTS users (
@@ -72,24 +72,31 @@ function setupDatabase() {
 setupDatabase();
 
 function getTarif() {
-    $db = getDB();
+    $db  = getDB();
     $row = $db->query("SELECT harga_per_kg FROM tarif ORDER BY id DESC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
     return $row ? floatval($row['harga_per_kg']) : 500;
 }
 
 function getNomorAntrian() {
-    $db = getDB();
-    $max = $db->query("SELECT MAX(nomor_antrian) as m FROM pesanan")->fetch(PDO::FETCH_ASSOC);
-    return $max['m'] ? intval($max['m']) + 1 : 1;
+    $db       = getDB();
+    $hari_ini = date('Y-m-d');
+    $row = $db->query(
+        "SELECT MAX(nomor_antrian) as m FROM pesanan
+         WHERE DATE(waktu_pesan) = '$hari_ini'"
+    )->fetch(PDO::FETCH_ASSOC);
+    return ($row['m'] !== null) ? intval($row['m']) + 1 : 1;
 }
 
 function buatOrderId() {
-    return 'ORD' . time() . rand(100, 999);
+    return 'ORD' . date('Ymd') . strtoupper(substr(uniqid(), -5));
 }
 
 function simpanLog($username, $role, $aksi, $detail = '') {
-    $db = getDB();
-    $stmt = $db->prepare("INSERT INTO log_aktivitas (username, role, aksi, detail) VALUES (?, ?, ?, ?)");
+    $db   = getDB();
+    $stmt = $db->prepare(
+        "INSERT INTO log_aktivitas (username, role, aksi, detail, waktu)
+         VALUES (?, ?, ?, ?, datetime('now','localtime'))"
+    );
     $stmt->execute([$username, $role, $aksi, $detail]);
 }
 

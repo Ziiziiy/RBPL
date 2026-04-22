@@ -60,3 +60,28 @@
 /* Login staff button */
 .btn-navy        { background: var(--clr-navy); color: #fff; }
 .btn-navy:hover  { background: var(--clr-navy-dk); }
+
+/* ── Dot live indicator ── */
+.dot-live {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+    animation: pulse-dot 1.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .4; transform: scale(.8); }
+}
+
+/* Keterangan total pesanan hari ini */
+.antrian-total-hari {
+    font-size: 11px;
+    color: var(--clr-text-3);
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--clr-border);
+}
