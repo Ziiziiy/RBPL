@@ -51,9 +51,48 @@ if (isset($_GET['export'])) {
     <title>Laporan Transaksi</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/laporan.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-sidebar">
+
+    <!-- ── SIDEBAR ── -->
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">🌾</div>
+            <div class="sidebar-name">Penggilingan Padi</div>
+            <div class="sidebar-sub">BangunRejo</div>
+        </div>
+        <div class="sidebar-nav">
+            <a href="owner.php" class="sidebar-link ">
+                <span class="sidebar-icon">📈</span> Dashboard
+            </a>
+            <a href="laporan.php" class="sidebar-link active">
+                <span class="sidebar-icon">📄</span> Laporan
+            </a>
+            <a href="kelola_tarif.php" class="sidebar-link ">
+                <span class="sidebar-icon">⚙️</span> Kelola Tarif
+            </a>
+            <a href="log_aktivitas.php" class="sidebar-link ">
+                <span class="sidebar-icon">📊</span> Log Aktivitas
+            </a>
+            <a href="status_antrian.php" class="sidebar-link">
+                <span class="sidebar-icon">👁️</span> Status Antrian
+            </a>
+            <a href="index.php" class="sidebar-link">
+                <span class="sidebar-icon">🖥️</span> Mode Kiosk
+            </a>
+        </div>
+        <div class="sidebar-sep"></div>
+        <div class="sidebar-footer">
+            <a href="logout.php" class="sidebar-link">
+                <span class="sidebar-icon">🚪</span> Logout
+            </a>
+        </div>
+    </nav>
+    <!-- ── MAIN AREA ── -->
+    <div class="main-area">
+
     <div class="top-bar">
         <a href="owner.php" class="back-btn">← Kembali</a>
         <h1>📄 Laporan Transaksi</h1>
@@ -167,5 +206,6 @@ if (isset($_GET['export'])) {
         <?php endif; ?>
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

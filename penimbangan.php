@@ -31,9 +31,10 @@ $berat_val = $_SESSION['pesanan_baru']['berat'] ?? '';
     <title>Penimbangan Padi — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/penimbangan.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="top-bar top-bar-center">
         <a href="buat_pesanan.php" class="back-btn">← Kembali</a>
@@ -110,5 +111,6 @@ function simulasiTimbang() {
 // Init
 updateDisplay(document.getElementById('inputBerat').value);
 </script>
+<script src="js/theme.js"></script>
 </body>
 </html>

@@ -182,3 +182,12 @@
     background: var(--clr-border);
     color: var(--clr-text);
 }
+/* ── Responsive: stat grid lebar ── */
+@media (min-width: 560px) {
+    .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+}
+
+/* ── Sembunyikan logout di top-bar jika ada sidebar ── */
+@media (min-width: 768px) {
+    .topbar-row .logout-btn { display: none; }
+}

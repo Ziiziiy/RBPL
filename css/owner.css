@@ -137,3 +137,13 @@
 }
 .info-row-live .info-row-label { color: #dc2626; }
 .info-row-live .info-row-value { color: #dc2626; font-weight: 800; }
+
+/* ── Responsive: di tablet/desktop stats jadi 2 kolom ── */
+@media (min-width: 600px) {
+    .stats-trio { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Sembunyikan logout di top-bar jika ada sidebar ── */
+@media (min-width: 768px) {
+    .topbar-row .logout-btn { display: none; }
+}

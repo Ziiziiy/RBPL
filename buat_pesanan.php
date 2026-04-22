@@ -29,9 +29,10 @@ $tarif = getTarif();
     <title>Buat Pesanan — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/buat_pesanan.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="top-bar top-bar-center">
         <a href="index.php" class="back-btn">← Kembali</a>
@@ -72,5 +73,6 @@ $tarif = getTarif();
         </div>
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

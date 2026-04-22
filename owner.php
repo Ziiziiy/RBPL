@@ -46,6 +46,7 @@ $pendapatan_bulan = $db->query("
       AND status IN ('selesai','diambil')
 ")->fetchColumn();
 
+// Antrian aktif saat ini
 $antrian_aktif_now = $db->query("
     SELECT COUNT(*) FROM pesanan
     WHERE status IN ('antrian','proses')
@@ -59,9 +60,48 @@ $antrian_aktif_now = $db->query("
     <title>Dashboard Owner — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/owner.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-sidebar">
+
+    <!-- ── SIDEBAR ── -->
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">🌾</div>
+            <div class="sidebar-name">Penggilingan Padi</div>
+            <div class="sidebar-sub">BangunRejo</div>
+        </div>
+        <div class="sidebar-nav">
+            <a href="owner.php" class="sidebar-link active">
+                <span class="sidebar-icon">📈</span> Dashboard
+            </a>
+            <a href="laporan.php" class="sidebar-link ">
+                <span class="sidebar-icon">📄</span> Laporan
+            </a>
+            <a href="kelola_tarif.php" class="sidebar-link ">
+                <span class="sidebar-icon">⚙️</span> Kelola Tarif
+            </a>
+            <a href="log_aktivitas.php" class="sidebar-link ">
+                <span class="sidebar-icon">📊</span> Log Aktivitas
+            </a>
+            <a href="status_antrian.php" class="sidebar-link">
+                <span class="sidebar-icon">👁️</span> Status Antrian
+            </a>
+            <a href="index.php" class="sidebar-link">
+                <span class="sidebar-icon">🖥️</span> Mode Kiosk
+            </a>
+        </div>
+        <div class="sidebar-sep"></div>
+        <div class="sidebar-footer">
+            <a href="logout.php" class="sidebar-link">
+                <span class="sidebar-icon">🚪</span> Logout
+            </a>
+        </div>
+    </nav>
+    <!-- ── MAIN AREA ── -->
+    <div class="main-area">
+
 
     <div class="top-bar">
         <div class="topbar-row">
@@ -76,6 +116,7 @@ $antrian_aktif_now = $db->query("
 
     <div class="content">
 
+        <!-- ── STATISTIK HARI INI ── -->
         <div class="stats-section">
             <div class="stats-label">📈 Statistik Hari Ini</div>
 
@@ -106,6 +147,7 @@ $antrian_aktif_now = $db->query("
             </div>
             <?php endif; ?>
 
+            <!-- Pendapatan hari ini — metric utama -->
             <div class="pendapatan-box">
                 <div class="pendapatan-label">💰 Pendapatan Hari Ini</div>
                 <div class="pendapatan-value">Rp <?= number_format($total_pendapatan, 0, ',', '.') ?></div>
@@ -118,6 +160,7 @@ $antrian_aktif_now = $db->query("
             </div>
         </div>
 
+        <!-- ── MENU NAVIGASI ── -->
         <a href="laporan.php" class="menu-item">
             <div class="menu-icon icon-blue">📄</div>
             <div class="menu-item-text">
@@ -145,6 +188,7 @@ $antrian_aktif_now = $db->query("
             <span class="menu-chevron">›</span>
         </a>
 
+        <!-- ── AKSES CEPAT ── -->
         <div class="card">
             <div class="akses-cepat-title">⚡ Akses Cepat</div>
             <div style="display:flex; flex-direction:column; gap:8px;">
@@ -155,5 +199,6 @@ $antrian_aktif_now = $db->query("
 
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

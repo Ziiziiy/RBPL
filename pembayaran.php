@@ -57,9 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Pembayaran — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/pembayaran.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="top-bar" style="text-align:center;">
         <a href="penimbangan.php" class="back-btn">← Kembali</a>
@@ -126,5 +127,6 @@ function pilihMetode(m) {
     document.getElementById('inputMetode').value = m;
 }
 </script>
+<script src="js/theme.js"></script>
 </body>
 </html>

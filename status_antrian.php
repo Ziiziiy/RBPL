@@ -28,9 +28,10 @@ $waktu_sekarang = date('H.i.s');
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/status_antrian.css">
     <meta http-equiv="refresh" content="10">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="top-bar">
         <a href="index.php" class="back-btn">← Kembali</a>
@@ -167,5 +168,6 @@ function updateWaktu() {
 setInterval(updateWaktu, 1000);
 </script>
 
+<script src="js/theme.js"></script>
 </body>
 </html>

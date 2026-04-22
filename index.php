@@ -5,10 +5,12 @@ require_once 'database.php';
 $db       = getDB();
 $hari_ini = date('Y-m-d');
 
+// Antrian aktif
 $antrian_aktif  = $db->query(
     "SELECT COUNT(*) FROM pesanan WHERE status IN ('antrian','proses')"
 )->fetchColumn();
 
+// Nomor antrian terakhir HARI INI saja (reset per hari)
 $nomor_terakhir = $db->query(
     "SELECT MAX(nomor_antrian) FROM pesanan WHERE DATE(waktu_pesan) = '$hari_ini'"
 )->fetchColumn();
@@ -25,9 +27,10 @@ $total_hari_ini = $db->query(
     <title>Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="kiosk-header">
         <div class="kiosk-logo">🌾</div>
@@ -55,6 +58,7 @@ $total_hari_ini = $db->query(
             <?php endif; ?>
         </div>
 
+        <!-- Menu navigasi -->
         <a href="buat_pesanan.php" class="menu-item">
             <div class="menu-icon icon-orange">📋</div>
             <div class="menu-text">
@@ -86,5 +90,6 @@ $total_hari_ini = $db->query(
 
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

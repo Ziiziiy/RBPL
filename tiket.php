@@ -17,9 +17,10 @@ $tiket = $_SESSION['tiket'];
     <title>Tiket Antrian — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/tiket.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 
     <div class="top-bar top-bar-center" style="padding-bottom:20px;">
         <h1>🎫 Tiket Antrian</h1>
@@ -87,5 +88,6 @@ $tiket = $_SESSION['tiket'];
 
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

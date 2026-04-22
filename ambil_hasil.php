@@ -39,9 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['konfirmasi_order_id']
     <title>Ambil Hasil Penggilingan</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/ambil_hasil.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
     <div class="top-bar">
         <a href="index.php" class="back-btn">← Kembali</a>
         <h1>📦 Ambil Hasil Penggilingan</h1>
@@ -172,5 +173,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['konfirmasi_order_id']
         <?php endif; ?>
     </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>

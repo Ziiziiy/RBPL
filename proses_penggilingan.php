@@ -67,9 +67,39 @@ if ($pesanan['status'] === 'selesai' && $pesanan['berat_padi'] > 0) {
     <title>Proses Penggilingan — #<?= $pesanan['nomor_antrian'] ?></title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/proses_penggilingan.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-sidebar">
+
+    <!-- ── SIDEBAR ── -->
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">🌾</div>
+            <div class="sidebar-name">Penggilingan Padi</div>
+            <div class="sidebar-sub">BangunRejo</div>
+        </div>
+        <div class="sidebar-nav">
+            <a href="operator.php" class="sidebar-link ">
+                <span class="sidebar-icon">📊</span> Dashboard
+            </a>
+            <a href="status_antrian.php" class="sidebar-link">
+                <span class="sidebar-icon">📋</span> Status Antrian
+            </a>
+            <a href="index.php" class="sidebar-link">
+                <span class="sidebar-icon">🖥️</span> Mode Kiosk
+            </a>
+        </div>
+        <div class="sidebar-sep"></div>
+        <div class="sidebar-footer">
+            <a href="logout.php" class="sidebar-link">
+                <span class="sidebar-icon">🚪</span> Logout
+            </a>
+        </div>
+    </nav>
+    <!-- ── MAIN AREA ── -->
+    <div class="main-area">
+
 
     <div class="top-bar">
         <a href="operator.php" class="back-btn">← Kembali</a>
@@ -262,5 +292,6 @@ function hitungHasil() {
 }
 hitungHasil();
 </script>
+<script src="js/theme.js"></script>
 </body>
 </html>

@@ -41,9 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login Staff — Penggilingan Padi BangunRejo</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/login.css">
+    <script>(function(){var s=localStorage.getItem("rbpl-theme");var p=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||p);})();</script>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-wrapper layout-kiosk">
 <div class="login-page">
 
     <!-- Brand -->
@@ -103,5 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </div>
 </div>
+<script src="js/theme.js"></script>
 </body>
 </html>
